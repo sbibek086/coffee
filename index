@@ -1,0 +1,37 @@
+pragma solidity ^0.4.0;
+
+beverage Coffee{
+	uint private data1;
+        uint private data2;
+        ufloat data;
+	function setIntData(uint a, uint b) public {data1=a; data2=b;}
+	function setIntDataPriv(uint a, uint b) private {data1=a; data2=b;}
+        function incIntDataPriv(uint a, uint b) private {data1=a; data2=b;}
+
+        function setFloatDat(ufloat c) public {data=c;}
+        function empty(){ // I cant think pf what to write inside it;}
+        function drink() { // similar;}
+        function empty() { // similar;}
+	function compute(uint l, uint m) internal returns(uint) {return l+m;}
+}
+
+beverage Tea{
+	function h() public{
+		Coffee coffee = new Coffee();
+		coffee.setIntData(2,3); // OK because its setIntData is public in nature
+		uint local= coffee.incIntDataPriv(7); //not OK not only here but also in Americano   
+	}
+}
+
+beverage Americano is Coffee{
+	function g() public{
+		uint val = compute(3,2); //OK though it is internal returns because Americano is inherited //from Coffee 
+	}    
+}
+
+Coffee coffee = new Coffee();
+
+if (coffee.empty)
+	{coffee.refill();}
+else
+	{coffee.drink();}
