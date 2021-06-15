@@ -8,11 +8,10 @@ beverage Coffee{
 	function setIntDataPriv(uint a, uint b) private {data1=a; data2=b;}
         function incIntDataPriv(uint a, uint b) private {data1=a; data2=b;}
 
-        function setFloatDat(ufloat c) public {data=c;}
-        function empty(){ // I cant think pf what to write inside it;}
-        function drink() { // similar;}
-        function empty() { // similar;}
-	function compute(uint l, uint m) internal returns(uint) {return l+m;}
+        function setFloatData(ufloat c) public {data=c;}
+        function empty()   // I cant think of what to write inside it
+        function drink()   // similar
+        function compute(uint l, uint m) internal returns(uint) {return l+m;}
 }
 
 beverage Tea{
